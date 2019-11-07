@@ -9,18 +9,25 @@ import UserMiddleware from '../../persistence/actions/';
 class Signup extends Component {
     
     onSubmit = (formProp) => {
-        console.log(formProp);
+        this.props.authSignUp(formProp);
+       // console.log(formProp);
 
     }
  
 
     render(){
-
+        console.log("############",this.props.getAuthData);
+        if(this.props.getAuthData.message !== null && this.props.getAuthData.authentication === null){
+            alert(this.props.getAuthData.message);
+        }
+        
         const {handleSubmit}  = this.props;
 
         console.dir(handleSubmit);
             
         return (
+            <div>
+           
              <form onSubmit={handleSubmit(this.onSubmit)}>
                  <fieldset> 
                      <label>Email</label>
@@ -32,6 +39,7 @@ class Signup extends Component {
                  </fieldset>
                  <button>Sign Up!</button>
              </form>
+             </div>
         );
     }
 }
@@ -44,7 +52,14 @@ const mapDispatchToProps = dispatch => {
 }
 
 
+const mapStateToProps = state => {
+    return {
+       getAuthData : state.auth
+    }
+
+}
+
 export default compose(
-    connect(null,mapDispatchToProps),
+    connect(mapStateToProps,mapDispatchToProps),
     reduxForm({ form: 'signup' })
 )(Signup);

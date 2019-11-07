@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { AUTH_USER, AUTH_SAVE } from '../../types/userType';
+import { AUTH_USER,AUTH_ERROR } from '../../types/userType';
 
 
 
@@ -7,21 +7,13 @@ const UserMiddleware = {
 
       userSignup :  (signupProps) => {
         return async (dispatch, getState) => {
-
-
-            const url = '/signup';
-            var config = {
-                headers: {
-                    'Access-Control-Allow-Origin': '*',
-                    'Content-Type': 'application/json',
-                },
-                data: signupProps
-            };
-
-            let userAuth = await axios.get(url, config);
-            console.log(userAuth)
-           // dispatch({type : AUTH_USER, payload : userAuth});
-           
+           try{
+            const url      = 'http://localhost:3090/api/v1/signup';
+            const userAuth = await axios.post(url,signupProps);
+            dispatch({type : AUTH_USER, payload : userAuth.data.token});
+           }catch(error){
+            dispatch({type : AUTH_ERROR, payload : error});
+           }
         };
       }
 

@@ -1,4 +1,6 @@
 const AUTH_USER = 'AUTH_USER';
 const AUTH_SAVE = 'AUTH_SAVE';
+const AUTH_ERROR = 'AUTH_ERROR';
 
-export { AUTH_USER, AUTH_SAVE }
+
+export { AUTH_USER, AUTH_SAVE, AUTH_ERROR }
