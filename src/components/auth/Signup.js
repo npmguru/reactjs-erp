@@ -1,7 +1,9 @@
 import React, {Component} from  'react';
 import {reduxForm, Field} from 'redux-form';
+import {bindActionCreators } from 'redux'
+import {compose} from 'redux';
 import {connect} from 'react-redux';
-import {UserMiddleware} from '../../persistence/actions/';
+import UserMiddleware from '../../persistence/actions/';
 
 
 class Signup extends Component {
@@ -34,4 +36,15 @@ class Signup extends Component {
     }
 }
 
-export default reduxForm({ form: 'signup' })(Signup);
+const mapDispatchToProps = dispatch => {
+    return bindActionCreators({
+        authSignUp : UserMiddleware.userSignup
+    },dispatch);
+
+}
+
+
+export default compose(
+    connect(null,mapDispatchToProps),
+    reduxForm({ form: 'signup' })
+)(Signup);
