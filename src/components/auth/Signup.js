@@ -9,7 +9,9 @@ import UserMiddleware from '../../persistence/actions/';
 class Signup extends Component {
     
     onSubmit = (formProp) => {
-        this.props.authSignUp(formProp);
+        this.props.authSignUp(formProp, () => {
+            this.props.history.push('/feature');
+        });
        // console.log(formProp);
 
     }

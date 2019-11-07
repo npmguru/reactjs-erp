@@ -11,6 +11,8 @@ import reduxThunk from 'redux-thunk';
 import App from './App';
 import Welcome from './components/masters/Welcome';
 import Signup from './components/auth/Signup';
+import Feature from './components/feature';
+
 
 const erpStore = createStore(rootReducer,{},applyMiddleware(reduxThunk));
 
@@ -20,6 +22,7 @@ ReactDOM.render(
             <App>
                 <Route path="/" exact component={Welcome} />
                 <Route path="/signup" exact component={Signup} />
+                <Route path="/feature" exact component={Feature} />
             </App>
         </BrowserRouter>
    </Provider>
