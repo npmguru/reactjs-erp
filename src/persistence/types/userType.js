@@ -1,0 +1,4 @@
+const AUTH_USER = 'AUTH_USER';
+const AUTH_SAVE = 'AUTH_SAVE';
+
+export { AUTH_USER, AUTH_SAVE }
