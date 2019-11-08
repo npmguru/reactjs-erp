@@ -9,8 +9,9 @@ import {erpStore,persistor} from './persistence/store';
 
 import App from './App';
 import Welcome from './components/masters/Welcome';
-import Signup from './components/auth/Signup';
+import Signup from './components/auth/signup';
 import Feature from './components/feature';
+import SignOut from './components/auth/signout';
 
 
 
@@ -22,6 +23,7 @@ ReactDOM.render(
                 <Route path="/" exact component={Welcome} />
                 <Route path="/signup" exact component={Signup} />
                 <Route path="/feature" exact component={Feature} />
+                <Route path="/signout" exact component={SignOut} />
             </App>
         </BrowserRouter>
         </PersistGate>

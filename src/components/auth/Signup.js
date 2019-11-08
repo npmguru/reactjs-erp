@@ -3,7 +3,7 @@ import {reduxForm, Field} from 'redux-form';
 import {bindActionCreators } from 'redux'
 import {compose} from 'redux';
 import {connect} from 'react-redux';
-import UserMiddleware from '../../persistence/actions/';
+import UserMiddleware from '../../persistence/actions';
 
 
 class Signup extends Component {
@@ -29,7 +29,6 @@ class Signup extends Component {
             
         return (
             <div>
-           
              <form onSubmit={handleSubmit(this.onSubmit)}>
                  <fieldset> 
                      <label>Email</label>

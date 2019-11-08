@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import  RequireAuth  from './hoc/requireAuth';
+
+
 const Feature =  (props) => {
      console.log(props)
     return(
@@ -13,6 +15,38 @@ const mapStateToProps = function(state) {
     return {
       auth: state.auth,
     }
-  }
+}
+
+
 connect(mapStateToProps)(Feature);
 export default RequireAuth(Feature);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
